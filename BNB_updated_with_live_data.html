@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BNB - Cryptex</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/cryptex-master/assets/css/style.css">
+</head>
+<body style="margin: 0; padding-top: 80px; font-family: Arial, sans-serif; background-color: #121212; color: white;">
+
+
+  <!-- HEADER -->
+  <header class="header" data-header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="/cryptex-master/assets/images/logo.svg" width="32" height="32" alt="Cryptex logo">
+        Cryptex
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="/cryptex-master/index.html" class="navbar-link active" data-nav-link>Homepage</a></li>
+          <li class="navbar-item"><a href="/Buy-Crypto.html" class="navbar-link" data-nav-link>Buy Crypto</a></li>
+          <li class="navbar-item"><a href="/Markets.html" class="navbar-link" data-nav-link>Markets</a></li>
+          <li class="navbar-item"><a href="/Order.html" class="navbar-link" data-nav-link>Order</a></li>
+          <li class="footer-navlist-item"><a href="/Blog.html" target="_self" class="typography-Body3 color-textprimary">Blog</a></li>
+          <li class="navbar-item"><a href="#" class="navbar-link" data-nav-link>BITUSDT</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <a href="#" class="btn btn-outline">Wallet</a>
+
+      <div class="theme-toggle-container">
+        <button class="theme-toggle-btn" aria-label="Toggle dark mode">
+          <ion-icon name="moon-outline" class="moon-icon"></ion-icon>
+          <ion-icon name="sunny-outline" class="sun-icon"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live BTC Price and Change -->
+  <div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center p-3 border rounded bg-dark text-white" style="background-color: #1e1e1e;">
+      <div>
+        <img src="/cryptex-master/assets/images/BTC.png" class="token-icon" style="width: 32px; height: 32px; margin-right: 10px;" onclick="location.href='/BTC.html'"> BNB
+      </div>
+      <div id="btc-price" style="font-size: 1.25rem;">$0.00</div>
+      <div id="btc-change" style="font-size: 1.25rem;" class="price-up">0.00%</div>
+    </div>
+  </div>
+
+  <!-- Chart Container -->
+  <div class="chart-container">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div id="tradingview_bitcoin"></div>
+    </div>
+    <div class="tradingview-widget-copyright">
+      <a href="https://www.tradingview.com/symbols/BTCUSDT/" rel="noopener" target="_blank">
+        <span class="blue-text">BNBUSDT Chart</span>
+      </a>
+    </div>
+    <!-- TradingView Widget END -->
+  </div>
+
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget({
+    "width": "700",
+    "height": "700",
+    "symbol": "BINANCE:BNBUSDT",
+    "interval": "D",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "toolbar_bg": "#f1f3f6",
+    "enable_publishing": false,
+    "withdateranges": true,
+    "hide_side_toolbar": false,
+    "allow_symbol_change": true,
+    "studies": [],
+    "container_id": "tradingview_bitcoin"
+  });
+  </script>
+  <br>
+
+  <!-- Buy/Sell Form -->
+  <div class="container">
+    <div class="box-transparent border p-4 mb-4">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Buy BNB</h4>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">USDT Amount</label>
+              <input type="number" class="form-control input-transparent" placeholder="Enter USDT">
+            </div>
+            <button type="submit" class="btn btn-success">Buy</button>
+          </form>
+        </div>
+
+        <div class="col-md-6">
+          <h4>Sell BNB</h4>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">BNB Amount</label>
+              <input type="number" class="form-control input-transparent" placeholder="Enter BNB">
+            </div>
+            <button type="submit" class="btn btn-danger">Sell</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Styles -->
+  <style>
+    .box-transparent {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      border-radius: 10px;
+      color: #fff;
+    }
+    .input-transparent {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .input-transparent::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
+
+  <!-- Binance WebSocket Script -->
+  <script>
+    const socket = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@ticker');
+
+    socket.onmessage = function (event) {
+      const data = JSON.parse(event.data);
+      const price = parseFloat(data.c);
+      const change = parseFloat(data.P);
+
+      const displayPrice = price > 1000 ? `$${(price / 1000).toFixed(2)}K` : `$${price.toFixed(2)}`;
+      document.getElementById('btc-price').innerText = displayPrice;
+
+      const changeEl = document.getElementById('btc-change');
+      changeEl.innerText = `${change.toFixed(2)}%`;
+
+      if (change >= 0) {
+        changeEl.classList.add('price-up');
+        changeEl.classList.remove('price-down');
+        changeEl.style.color = 'limegreen';
+      } else {
+        changeEl.classList.add('price-down');
+        changeEl.classList.remove('price-up');
+        changeEl.style.color = 'red';
+      }
+    };
+  </script>
+
+</body>
+</html>

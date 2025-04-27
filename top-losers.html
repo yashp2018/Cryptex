@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Losers</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #d1d5da;
+    }
+    .card {
+      background-color: #161b22;
+      border: none;
+      border-radius: 12px;
+    }
+    .price-down {
+      color: #ef4444;
+    }
+    .token-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body class="p-4">
+  <div class="container">
+    <h2 class="text-white mb-4">Top Losers (Live)</h2>
+    <div class="card p-3">
+      <div class="table-responsive">
+        <table class="table table-borderless text-white">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>24h Change</th>
+            </tr>
+          </thead>
+          <tbody id="losers-table-body">
+            <tr><td colspan="4" class="text-center">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const logoMap = {
+      BTC: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=032',
+      ETH: 'https://cryptologos.cc/logos/ethereum-eth-logo.png?v=032',
+      BNB: 'https://cryptologos.cc/logos/binance-coin-bnb-logo.png?v=032',
+      DOGE: 'https://cryptologos.cc/logos/dogecoin-doge-logo.png?v=032',
+      XRP: 'https://cryptologos.cc/logos/xrp-xrp-logo.png?v=032',
+      SOL: 'https://cryptologos.cc/logos/solana-sol-logo.png?v=032',
+      SUI: 'https://cryptologos.cc/logos/sui-sui-logo.png?v=032',
+      PEPE: 'https://cryptologos.cc/logos/pepe-pepe-logo.png?v=032'
+    };
+
+    async function loadTopLosers() {
+      try {
+        const response = await fetch('https://api.binance.com/api/v3/ticker/24hr');
+        const data = await response.json();
+        const topLosers = [...data]
+          .filter(c => c.symbol.endsWith('USDT') && parseFloat(c.priceChangePercent) < 0)
+          .sort((a, b) => parseFloat(a.priceChangePercent) - parseFloat(b.priceChangePercent))
+          .slice(0, 20);
+        updateTable(topLosers);
+      } catch (err) {
+        console.error('Error fetching losers:', err);
+      }
+    }
+
+    function updateTable(data) {
+      const tbody = document.getElementById('losers-table-body');
+      tbody.innerHTML = '';
+
+      data.forEach((coin, index) => {
+        const name = coin.symbol.replace('USDT', '');
+        const price = parseFloat(coin.lastPrice).toFixed(4);
+        const change = parseFloat(coin.priceChangePercent).toFixed(2);
+        const logo = logoMap[name] || 'https://via.placeholder.com/20';
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td><img src="${logo}" class="token-icon">${name}</td>
+          <td>$${price}</td>
+          <td class="price-down">${change}%</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    loadTopLosers();
+    setInterval(loadTopLosers, 15000);
+  </script>
+</body>
+</html>

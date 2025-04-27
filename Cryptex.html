@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cryptex - Cryptocurrency Guide</title>
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #161b22;
+      padding: 30px;
+      text-align: center;
+      border-bottom: 1px solid #2b3139;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #f0b90b;
+    }
+
+    header p {
+      color: #8b949e;
+      font-size: 1.1em;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      color: #58a6ff;
+      margin-bottom: 15px;
+    }
+
+    .section ul {
+      padding-left: 20px;
+      line-height: 1.8;
+      color: #9ca3af;
+    }
+
+    .coins {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .coin-card {
+      background-color: #1e2329;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .coin-card:hover {
+      transform: scale(1.05);
+    }
+
+    .coin-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .coin-name {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #f0b90b;
+    }
+
+    .coin-description {
+      font-size: 0.95em;
+      color: #8b949e;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #161b22;
+      text-align: center;
+      padding: 20px;
+      color: #8b949e;
+      font-size: 0.9em;
+      border-top: 1px solid #2b3139;
+    }
+
+    /* grid css  */
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      color: #58a6ff;
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 2.2em;
+    }
+
+    .coins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .coin-card {
+      background-color: #1e2329;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 420px; /* Increased height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .coin-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 4px 15px rgba(240, 185, 11, 0.3); /* slight glow */
+    }
+
+    .coin-card img {
+      width: 120px; /* Bigger images */
+      height: 120px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+    }
+
+    .coin-name {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #f0b90b;
+      margin-top: 10px;
+    }
+
+    .coin-description {
+      font-size: 1.05em;
+      color: #8b949e;
+      margin-top: 10px;
+    }
+    /* Large screens (Default) */
+.coins-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 30px;
+}
+
+/* Tablet screens (medium) */
+@media (max-width: 768px) {
+  .coins-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+}
+
+/* Mobile screens (small) */
+@media (max-width: 480px) {
+  .coins-grid {
+    grid-template-columns: 1fr; /* 1 column */
+  }
+}
+
+.crypto-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.crypto-image img {
+  width: 350px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.crypto-text {
+  max-width: 600px;
+}
+
+.crypto-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff; /* Changed to white */
+}
+
+.crypto-text p {
+  font-size: 1.1rem;
+  color: #ffffff; /* Changed to white */
+  line-height: 1.6;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .crypto-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .crypto-text {
+    max-width: 100%;
+  }
+}
+
+       
+/* <!-- Add CSS for hover effect and styling --> */
+        
+            .coins-card {
+              text-align: left;
+              height: 400px;
+              width: 280px;
+              border: 1px solid #ccc;
+              border-radius: 10px;
+              overflow: hidden;
+              transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+              background-color: #111; /* Dark background to match your image vibe */
+            }
+          
+            .coins-card img {
+              height: 200px;
+              width: 100%;
+              object-fit: cover;
+            }
+          
+            .coins-name {
+              padding: 10px;
+              font-size: 1.2em;
+              font-weight: bold;
+              color: #d1d5db; /* Light gray for the name */
+            }
+          
+            .coins-description {
+              padding: 0 10px;
+              color: #9ca3af; /* Softer gray for description */
+            }
+          
+            .coins-status {
+              margin: 10px;
+              font-weight: bold;
+              font-size: 1em;
+            }
+          
+            .gaining {
+              color: #0ecb81; /* Green for gaining */
+            }
+          
+            .losing {
+              color: #f6465d; /* Red for losing */
+            }
+          
+            .coins-card:hover {
+              transform: scale(1.05);
+              box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            }
+          </style>
+</head>
+<body>
+
+<header>
+
+  <h1>Cryptex</h1>
+  <p>Your Gateway to Understanding Cryptocurrency</p>
+</header>
+
+<div class="section">
+  <div class="crypto-wrapper">
+    <div class="crypto-image">
+      <img src="/cryptex-master/assets/Images2/bitcoin 2.jpg" alt="Bitcoin and Market Chart">
+    </div>
+    <div class="crypto-text">
+      <h2>What is Cryptocurrency?</h2>
+      <p>Cryptocurrency is a form of digital currency secured by cryptography and powered by blockchain technology. It enables decentralized, peer-to-peer transactions without relying on banks or governments.</p>
+    </div>
+  </div>
+</div>
+
+  
+  <div class="section" style="display: flex; align-items: center; justify-content: space-between; padding: 40px; gap: 40px;">
+
+    <!-- Left side: Text content -->
+    <div style="flex: 1.3;">
+      <h2 style="margin-bottom: 20px;">How Can Cryptocurrency Be Used?</h2>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 20px; font-size: 20px;">💸 <strong>Send and receive</strong> payments instantly across the globe</li>
+        <li style="margin-bottom: 20px; font-size: 20px;">💼 <strong>Invest, trade, or HODL</strong> for potential long-term gains</li>
+        <li style="margin-bottom: 20px; font-size: 20px;">🔐 <strong>Use smart contracts</strong> to automate agreements</li>
+        <li style="margin-bottom: 20px; font-size: 20px;">🛒 <strong>Shop online</strong> where crypto is accepted</li>
+        <li style="margin-bottom: 20px; font-size: 20px;">📈 <strong>Participate in DeFi</strong> (Decentralized Finance) protocols</li>
+        <li style="margin-bottom: 20px; font-size: 20px;">🎮 <strong>Buy in-game items, NFTs, and metaverse assets</strong></li>
+      </ul>
+    </div>
+  
+    <!-- Right side: Image -->
+    <div style="flex: 1; display: flex; align-items: center; justify-content: center;"> <!-- Centering the image container -->
+      <img src="/cryptex-master/assets/Images2/crypto 2.jpeg" alt="Cryptocurrency Usage" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover; margin-top: 20px; margin-bottom: 20px;" />
+    </div>
+  
+  </div>
+  
+
+</div><div class="section">
+  <h2>Popular Cryptocurrencies</h2>
+
+  <div class="coins-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 10px; row-gap: 30px; justify-content: center;">
+
+    <div class="coin-card" style="height: 350px; width: 280px; border: 1px solid #ccc; border-radius: 12px; overflow: hidden; text-align: left;">
+      <img src="/cryptex-master/assets/Images2/BTC.jpg" alt="Bitcoin Logo" style="height: 175px; width: 100%; object-fit: cover;" />
+      <div class="coin-name" style="padding: 10px; font-size: 1.2em; font-weight: bold;">Bitcoin (BTC)</div>
+      <div class="coin-description" style="padding: 0 10px;">The original cryptocurrency. Often called “digital gold.”</div>
+    </div>
+
+    <div class="coin-card" style="height: 350px; width: 280px; border: 1px solid #ccc; border-radius: 12px; overflow: hidden; text-align: left;">
+      <img src="/cryptex-master/assets/Images2/ETH.jpg" alt="Ethereum Logo" style="height: 175px; width: 100%; object-fit: cover;" />
+      <div class="coin-name" style="padding: 10px; font-size: 1.2em; font-weight: bold;">Ethereum (ETH)</div>
+      <div class="coin-description" style="padding: 0 10px;">Powers smart contracts and decentralized apps (dApps).</div>
+    </div>
+
+    <div class="coin-card" style="height: 350px; width: 280px; border: 1px solid #ccc; border-radius: 12px; overflow: hidden; text-align: left;">
+      <img src="/cryptex-master/assets/Images2/BNB.jpg" alt="Binance Coin Logo" style="height: 175px; width: 100%; object-fit: cover;" />
+      <div class="coin-name" style="padding: 10px; font-size: 1.2em; font-weight: bold;">BNB (Binance Coin)</div>
+      <div class="coin-description" style="padding: 0 10px;">Used to pay fees and participate in Binance Smart Chain apps.</div>
+    </div>
+
+    <div class="coin-card" style="height: 350px; width: 280px; border: 1px solid #ccc; border-radius: 12px; overflow: hidden; text-align: left;">
+      <img src="/cryptex-master/assets/Images2/Cardano.webp" alt="Cardano Logo" style="height: 175px; width: 100%; object-fit: cover;" />
+      <div class="coin-name" style="padding: 10px; font-size: 1.2em; font-weight: bold;">Cardano (ADA)</div>
+      <div class="coin-description" style="padding: 0 10px;">A blockchain focused on sustainability and academic research.</div>
+    </div>
+
+    <div class="coin-card" style="height: 350px; width: 280px; border: 1px solid #ccc; border-radius: 12px; overflow: hidden; text-align: left;">
+      <img src="/cryptex-master/assets/Images2/SOLANA.webp" alt="Solana Logo" style="height: 175px; width: 100%; object-fit: cover;" />
+      <div class="coin-name" style="padding: 10px; font-size: 1.2em; font-weight: bold;">Solana (SOL)</div>
+      <div class="coin-description" style="padding: 0 10px;">Fast and low-cost blockchain for DeFi and Web3 projects.</div>
+    </div>
+
+    <div class="coin-card" style="height: 350px; width: 280px; border: 1px solid #ccc; border-radius: 12px; overflow: hidden; text-align: left;">
+      <img src="/cryptex-master/assets/Images2/Avalanche.avif" alt="Polygon Logo" style="height: 175px; width: 100%; object-fit: cover;" />
+      <div class="coin-name" style="padding: 10px; font-size: 1.2em; font-weight: bold;">Polygon (MATIC)</div>
+      <div class="coin-description" style="padding: 0 10px;">Ethereum Layer-2 scaling solution for faster transactions.</div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="section">
+  <h2>Market News & Trends</h2>
+  <div class="coins" style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; gap: 20px;">
+      
+    <!-- Example 1 - Gaining -->
+    <div class="coins-card">
+      <img src="/cryptex-master/assets/Images2/rising.jpeg" alt="Bitcoin News" />
+      <div class="coins-name">Bitcoin (BTC)</div>
+      <div class="coins-description">BTC surges above $70,000 amid ETF optimism.</div>
+      <div class="coins-status gaining">▲ Gaining +3.4%</div>
+    </div>
+
+    <!-- Example 2 - Losing -->
+    <div class="coins-card">
+      <img src="/cryptex-master/assets/Images2/losing.jpeg" alt="Solana News" />
+      <div class="coins-name">Solana (SOL)</div>
+      <div class="coins-description">Network congestion issues cause SOL dip.</div>
+      <div class="coins-status losing">▼ Losing -2.1%</div>
+    </div>
+
+    <!-- Example 3 - Gaining -->
+    <div class="coins-card">
+      <img src="/cryptex-master/assets/Images2/rising.jpeg" alt="Ethereum News" />
+      <div class="coins-name">Ethereum (ETH)</div>
+      <div class="coins-description">Ethereum 2.0 upgrade boosts developer activity.</div>
+      <div class="coins-status gaining">▲ Gaining +1.8%</div>
+    </div>
+
+    <!-- Example 4 - Losing -->
+    <div class="coins-card">
+      <img src="/cryptex-master/assets/Images2/losing.jpeg" alt="Doge News" />
+      <div class="coins-name">Dogecoin (DOGE)</div>
+      <div class="coins-description">Market correction drags meme coins down.</div>
+      <div class="coins-status losing">▼ Losing -4.0%</div>
+    </div>
+
+  </div>
+</div>
+  
+
+<footer>
+  &copy; 2025 Cryptex | Built to educate and empower the crypto curious 🚀
+</footer>
+
+</body>
+</html>

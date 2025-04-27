@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto Market Overview</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/cryptex-master/assets/css/style.css">
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #d1d5da;
+    }
+
+    .card {
+      background-color: #161b22;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .price-up {
+      color: #22c55e;
+    }
+
+    .price-down {
+      color: #ef4444;
+    }
+
+    .token-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+
+    .more-link {
+      color: #facc15;
+      cursor: pointer;
+    }
+
+    .more-link:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      /* Spacing between the links */
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .nav-link {
+      color: #8b949e;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .nav-link:hover {
+      color: #c9d1d9;
+    }
+
+    .active-link {
+      color: white;
+      font-weight: bold;
+    }
+    
+      .token-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        margin-right: 8px;
+        object-fit: cover;
+        border: 1px solid #30363d; /* light border around icons */
+      }
+    
+    
+  </style>
+</head>
+
+<body class="p-4">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="/cryptex-master/assets/images/logo.svg" width="32" height="32" alt="Cryptex logo">
+        Cryptex
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link active" data-nav-link>Homepage</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="/Buy-Crypto.html" class="navbar-link" data-nav-link>Buy Crypto</a>
+          </li>
+
+
+          <li class="navbar-item">
+            <a href="/Markets.html" class="navbar-link" data-nav-link>Markets</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="/Order.html" class="navbar-link" data-nav-link>Order
+            </a>
+          </li>
+
+          <li class="footer-navlist-item">
+            <a id="footer_menu_item_ba-binanceBlog" href="/Blog.html" target="_self"
+              class="typography-Body3 color-textprimary">Blog</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>BITUSDT</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <a href="#" class="btn btn-outline">Wallet</a>
+    </div>
+  </header>
+
+
+  <div class="container">
+    <nav>
+      <a href="/Overview.html" class="nav-link active-link">Markets Overview</a>
+      <a href="/top-gainers.html" class="nav-link">Top-Gainers</a>
+      <a href="/top-losers.html" class="nav-link">Top-Losers</a>
+      <a href="/token-unlock.html" class="nav-link">Token-Unlock</a>
+    </nav>
+    <h2 class="text-white mb-5">Market Overview</h2>
+    <div class="row g-4">
+      <!-- Hot Coins -->
+      <div class="col-md-4">
+        <div class="card p-3">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Hot Coins</h5>
+            <span class="more-link" onclick="location.href='Overview.html'">More</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-borderless text-white">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>24h Change</th>
+                </tr>
+              </thead>
+              <tbody id="hot-coins-body">
+                <tr>
+                  <td colspan="4" class="text-center">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Gainers -->
+      <div class="col-md-4">
+        <div class="card p-3">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Top Gainers</h5>
+            <span class="more-link" onclick="location.href='top-gainers.html'">More</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-borderless text-white">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>24h Change</th>
+                </tr>
+              </thead>
+              <tbody id="top-gainers-body">
+                <tr>
+                  <td colspan="4" class="text-center">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Losers -->
+      <div class="col-md-4">
+        <div class="card p-3">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Top Losers</h5>
+            <span class="more-link" onclick="location.href='top-losers.html'">More</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-borderless text-white">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>24h Change</th>
+                </tr>
+              </thead>
+              <tbody id="top-losers-body">
+                <tr>
+                  <td colspan="4" class="text-center">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const logoMap = {
+      BTC: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=032',
+      ETH: 'https://cryptologos.cc/logos/ethereum-eth-logo.png?v=032',
+      BNB: 'https://cryptologos.cc/logos/binance-coin-bnb-logo.png?v=032',
+      DOGE: 'https://cryptologos.cc/logos/dogecoin-doge-logo.png?v=032',
+      XRP: 'https://cryptologos.cc/logos/xrp-xrp-logo.png?v=032',
+      SOL: 'https://cryptologos.cc/logos/solana-sol-logo.png?v=032',
+      SUI: 'https://cryptologos.cc/logos/sui-sui-logo.png?v=032',
+      PEPE: 'https://cryptologos.cc/logos/pepe-pepe-logo.png?v=032'
+    };
+  
+    async function loadCryptoData() {
+      try {
+        const response = await fetch('https://api.binance.com/api/v3/ticker/24hr');
+        const allData = await response.json();
+  
+        const watchlistSymbols = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'DOGEUSDT', 'XRPUSDT', 'SOLUSDT', 'SUIUSDT', 'PEPEUSDT'];
+  
+        const hotCoins = allData.filter(coin => watchlistSymbols.includes(coin.symbol));
+        const topGainers = [...allData].filter(c => parseFloat(c.priceChangePercent) > 0)
+                                        .sort((a, b) => parseFloat(b.priceChangePercent) - parseFloat(a.priceChangePercent))
+                                        .slice(0, 10);
+        const topLosers = [...allData].filter(c => parseFloat(c.priceChangePercent) < 0)
+                                      .sort((a, b) => parseFloat(a.priceChangePercent) - parseFloat(b.priceChangePercent))
+                                      .slice(0, 10);
+  
+        updateTable('hot-coins-body', hotCoins);
+        updateTable('top-gainers-body', topGainers);
+        updateTable('top-losers-body', topLosers, true);
+      } catch (error) {
+        console.error('Error fetching crypto data:', error);
+      }
+    }
+  
+    function updateTable(tableId, data, isLoser = false) {
+      const tbody = document.getElementById(tableId);
+      tbody.innerHTML = '';
+  
+      data.forEach((coin, index) => {
+        const price = parseFloat(coin.lastPrice).toFixed(4);
+        const change = parseFloat(coin.priceChangePercent).toFixed(2);
+        const fullSymbol = coin.symbol;
+        const name = fullSymbol.replace('USDT', '');
+        const logoUrl = logoMap[name] || `https://cryptoicons.org/api/icon/${name.toLowerCase()}/50`; // fallback if not found
+  
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td><img src="${logoUrl}" class="token-icon" alt="${name} logo">${name}</td>
+          <td>$${price}</td>
+          <td class="${isLoser || change < 0 ? 'price-down' : 'price-up'}">${change}%</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+  
+    loadCryptoData();
+    setInterval(loadCryptoData, 10000); // refresh every 10 seconds
+  </script>
+  
+</body>
+
+</html>
+

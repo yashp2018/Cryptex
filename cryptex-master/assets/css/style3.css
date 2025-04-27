@@ -1,0 +1,268 @@
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background-color: #0b0e11;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #12161c;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+.btn-yellow {
+  background-color: #fcd535;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 64px 5%;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.left-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.logo {
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight: var(--fw-700);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #2b3139;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tab.active {
+  border-bottom: 2px solid #fcd535;
+}
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+  @media (min-width: 768px) {
+    .md\:w-\[486px\] {
+      width: 486px;
+    }
+  }
+
+  .buy-sell-box {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .nav-tabs .nav-link {
+    color: #999;
+    background-color: transparent;
+    border: none;
+  }
+
+  .nav-tabs .nav-link.active {
+    color: white;
+    font-weight: bold;
+    border-bottom: 3px solid #ffc107;
+    background-color: #1a1a1a;
+  }
+
+  .form-label {
+    margin-top: 15px;
+  }
+
+  .form-control {
+    background-color: #0d0d0d;
+    color: #aaa;
+    border: 1px solid #333;
+  }
+
+  .btn-yellow {
+    background-color: #ffd52f;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .select-icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .select-icon img {
+    width: 20px;
+    height: 20px;
+  }
+
+
+  .bn-lazy-img.data-round {
+    border-radius: var(--radii-circle);
+  }
+
+  .w-\[24px\] {
+    width: 24px;
+  }
+
+  .h-\[24px\] {
+    height: 24px;
+  }
+
+  .bn-lazy-img {
+    overflow: hidden;
+    position: relative;
+  }
+
+  img {
+    display: unset;
+  }
+
+  img,
+  video {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .hot-cryptos {
+    margin-top: 2rem;
+  }
+
+  .crypto-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #2b3139;
+  }
+
+  .crypto-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .how-to-buy {
+    margin-top: 2rem;
+  }
+
+
+  @media only screen and (min-width: 768px) {
+
+    .t-title2,
+    .typography-title2 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 56px;
+    }
+  }
+
+  .t-title2,
+  .typography-title2 {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+  }
+
+  .card-custom {
+    background-color: #161B21;
+    border: 1px solid #2c2f36;
+    border-radius: 1.5rem;
+    padding: 24px;
+    height: 100%;
+  }
+
+  .card-custom img {
+    height: 64px;
+  }
+
+  @media (min-width: 768px) {
+    .card-custom img {
+      height: 96px;
+    }
+  }
+
+  .step-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-top: 24px;
+  }
+
+  .step-text {
+    color: #b0b3b8;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    margin-top: 8px;
+  }
+
+  .crypto-card {
+    background-color: #1f2937;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+
+  .crypto-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #374151;
+  }
+
+  .crypto-item:last-child {
+    border-bottom: none;
+  }
+
+  .crypto-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+
+  .green-text {
+    color: #10b981;
+  }

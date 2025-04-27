@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cryptex - Buy & Sell Digital Assets In The cryptex</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="/cryptex-master/assets/css/style.css">
+  <link rel="stylesheet" href="/cryptex-master/assets/css/style2.css">
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="/cryptex-master/assets/images/logo.svg" width="32" height="32" alt="Cryptex logo">
+        Cryptex
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link active" data-nav-link>Homepage</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="/Buy-Crypto.html" class="navbar-link" data-nav-link>Buy Crypto</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="/Markets.html" class="navbar-link" data-nav-link>Markets</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>Sell Crypto</a>
+          </li>
+
+          <li class="footer-navlist-item">
+            <a id="footer_menu_item_ba-binanceBlog" href="/Blog.html" target="_self" class="typography-Body3 color-textprimary">Blog</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>BITUSDT</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <a href="#" class="btn btn-outline">Wallet</a>
+
+      <div class="theme-toggle-container">
+        <button class="theme-toggle-btn" aria-label="Toggle dark mode">
+          <ion-icon name="moon-outline" class="moon-icon"></ion-icon>
+          <ion-icon name="sunny-outline" class="sun-icon"></ion-icon>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1>Latest Cryptocurrency News & Insights</h1>
+      <p>Stay updated with the latest news, market analysis, and educational content about Bitcoin, Ethereum, and the entire crypto ecosystem.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary">Explore Articles</button>
+        <button class="btn btn-outline">Subscribe</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://placehold.co/600x400" alt="Crypto Blog" width="100%" height="auto">
+    </div>
+  </div>
+</section>
+
+<!-- Categories Navigation -->
+<nav class="categories-nav">
+  <div class="categories-container">
+    <ul class="categories-list">
+      <li class="category-item active">All</li>
+      <li class="category-item">Blockchain</li>
+      <li class="category-item">Crypto</li>
+      <li class="category-item">DeFi</li>
+      <li class="category-item">NFT</li>
+      <li class="category-item">Trading</li>
+      <li class="category-item">Technical Analysis</li>
+      <li class="category-item">Security</li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Articles Grid -->
+<section class="articles-section">
+  <div class="articles-container">
+    <div class="articles-header">
+      <h2>Latest Articles</h2>
+      <a href="#" class="view-all">View All</a>
+    </div>
+    <div class="articles-grid">
+      <!-- Article Card 1 -->
+      <article class="article-card">
+        <img src="https://placehold.co/600x400" alt="Bitcoin" class="article-image">
+        <div class="article-content">
+          <span class="article-category">Bitcoin</span>
+          <h3 class="article-title">Bitcoin Price Analysis: BTC Reaches New All-Time High</h3>
+          <p class="article-excerpt">The world's largest cryptocurrency by market capitalization has reached a new all-time high. What's next for Bitcoin?</p>
+        </div>
+      </article>
+
+      <!-- Article Card 2 -->
+      <article class="article-card">
+        <img src="https://placehold.co/600x400" alt="DeFi" class="article-image">
+        <div class="article-content">
+          <span class="article-category">DeFi</span>
+          <h3 class="article-title">Understanding DeFi: The Future of Finance</h3>
+          <p class="article-excerpt">Decentralized Finance (DeFi) is changing how we think about financial systems. Here's what you need to know.</p>
+        </div>
+      </article>
+
+      <!-- Article Card 3 -->
+      <article class="article-card">
+        <img src="https://placehold.co/600x400" alt="NFT" class="article-image">
+        <div class="article-content">
+          <span class="article-category">NFT</span>
+          <h3 class="article-title">NFT Market Recovery: Analysis and Predictions</h3>
+          <p class="article-excerpt">After a period of decline, the NFT market shows signs of recovering. What's driving this trend?</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section">
+  <div class="newsletter-container">
+    <h2 class="newsletter-title">Stay Ahead of the Crypto Curve</h2>
+    <p class="newsletter-description">Subscribe to our newsletter for curated content, market insights, and exclusive updates delivered straight to your inbox.</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Your email address" class="newsletter-input">
+      <button type="submit" class="newsletter-button">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top" data-section>
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="/cryptex-master/assets/images/logo.svg" width="50" height="50" alt="Cryptex logo">
+            Cryptex
+          </a>
+
+          <h2 class="footer-title">Let's talk! 🤙</h2>
+
+          <a href="tel:+123456789101" class="footer-contact-link">+12 345 678 9101</a>
+
+          <a href="mailto:hello.cryptex@gmail.com" class="footer-contact-link">hello.cryptex@gmail.com</a>
+
+          <address class="footer-contact-link">
+            Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522
+          </address>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Products</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Spot</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Inverse Perpetual</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">USDT Perpetual</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Exchange</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Launchpad</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Binance Pay</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Services</p>
+          </li>
+
+          <li>
+            <a href="/Buy-Crypto.html" class="footer-link">Buy Crypto</a>
+          </li>
+
+          <li>
+            <a href="/Market.html" class="footer-link">Markets</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Tranding Fee</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Affiliate Program</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Referral Program</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">API</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Support</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Bybit Learn</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Help Center</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">User Feedback</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Submit a request</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">API Documentation</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Trading Rules</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">About Us</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">About Bybit</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Authenticity Check</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Careers</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Business Contacts</a>
+          </li>
+
+          <li class="footer-navlist-item">
+            <a id="footer_menu_item_ba-binanceBlog" href="/Blog.html" target="_self" class="typography-Body3 color-textprimary">Blog</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2022 Cryptex All Rights Reserved by <a href="#" class="copyright-link">codewithsadee</a>
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

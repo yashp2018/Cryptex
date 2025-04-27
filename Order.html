@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live BTC/USDT Order Book</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b0e11;
+      color: #eaecef;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: #1e2329;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-bottom: 1px solid #2b3139;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .order-box {
+      width: 45%;
+      background-color: #1e2329;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .order-header {
+      background-color: #2b3139;
+      padding: 10px 15px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #f0b90b;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      text-align: right;
+      padding: 8px 12px;
+      border-bottom: 1px solid #2b3139;
+    }
+
+    th {
+      background-color: #1e2329;
+      color: #848e9c;
+      font-weight: 500;
+    }
+
+    tr:hover {
+      background-color: #2b3139;
+    }
+
+    .buy {
+      color: #0ecb81;
+    }
+
+    .sell {
+      color: #f6465d;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .order-box {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>BTC/USDT Live Order Book</header>
+
+  <div class="container">
+    <div class="order-box">
+      <div class="order-header">Buy Orders</div>
+      <table>
+        <thead>
+          <tr><th>Price (USDT)</th><th>Amount (BTC)</th></tr>
+        </thead>
+        <tbody id="buyOrders"></tbody>
+      </table>
+    </div>
+
+    <div class="order-box">
+      <div class="order-header">Sell Orders</div>
+      <table>
+        <thead>
+          <tr><th>Price (USDT)</th><th>Amount (BTC)</th></tr>
+        </thead>
+        <tbody id="sellOrders"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const buyTable = document.getElementById('buyOrders');
+    const sellTable = document.getElementById('sellOrders');
+  
+    const updateTable = (table, data, type) => {
+      table.innerHTML = '';
+      data.slice(0, 20).forEach(order => {
+        const price = parseFloat(order[0]).toLocaleString();
+        const amount = parseFloat(order[1]).toFixed(6);
+        const row = document.createElement('tr');
+        row.innerHTML =
+          '<td class="' + type + '">' + price + '</td>' +
+          '<td>' + amount + '</td>';
+        table.appendChild(row);
+      });
+    };
+  
+    const socket = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@depth20@100ms');
+  
+    socket.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      updateTable(buyTable, data.bids, 'buy');
+      updateTable(sellTable, data.asks, 'sell');
+    };
+  </script>
+  
+</body>
+</html>
